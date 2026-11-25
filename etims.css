@@ -276,9 +276,16 @@ footer{background:var(--ink);color:#bfa4a1;padding:70px 0 40px}
   .stage3d{height:460px}
   .ring{transform:scale(.8)}
   .venue .txt,.panel{padding:30px}
-  .fees .row{grid-template-columns:1fr auto;gap:12px}.fees .row s{display:none}
+  .fees .row{grid-template-columns:1fr auto auto;gap:12px}.fees .row s{font-size:20px;min-width:68px}.fees .row b{min-width:72px}
 }
 @media (max-width:720px){
+  html,body{scrollbar-width:none;-ms-overflow-style:none;scrollbar-color:transparent transparent}
+  html::-webkit-scrollbar,body::-webkit-scrollbar{display:none}
+  html::-webkit-scrollbar-track,body::-webkit-scrollbar-track{background:transparent}
+  html::-webkit-scrollbar-thumb,body::-webkit-scrollbar-thumb{background:transparent}
+  .hero .wrap{margin-left:30px;width:calc(100% - 30px)}
+  .hero .facts{border-left:0;padding-left:0}
+  .stats{grid-template-columns:repeat(2,1fr)}
   .nav{padding:8px 4vw}.nav .brand img{width:34px;height:34px}.nav .brand b{font-size:13px}.nav ul a{font-size:11px;letter-spacing:.05em}
   .nav .btn{display:none}
   .hero h1{font-size:clamp(28px,9vw,52px);margin:16px 0 12px;line-height:1.05}
@@ -318,7 +325,7 @@ footer{background:var(--ink);color:#bfa4a1;padding:70px 0 40px}
   .co-grid{grid-template-columns:1fr}.co{padding:16px}
   .co img{width:80px;height:80px}.co h5{font-size:16px}
   .adv-grid{gap:10px}.adv{padding:14px;gap:12px}.adv img{width:60px;height:60px}
-  .fees .row{grid-template-columns:1fr auto;gap:8px}.fees .row span{font-size:13px}
+  .fees .row{grid-template-columns:1fr auto auto;gap:8px}.fees .row s{font-size:17px;min-width:60px}.fees .row span{font-size:13px}
   .venue .img{min-height:260px}
   .photo3d{height:340px}.photo3d .card img{height:300px}
 }
