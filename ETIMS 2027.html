@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ETIMS 2027 · NSIT Bihta — 1st National Conference</title>
+<link rel="stylesheet" href="etims.css">
+</head>
+<body>
+<div class="bg-glow" id="bgGlow"></div>
+<div class="progress" id="progress"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#top" class="brand"><img src="assets/logo.png" alt="NSIT"><span><b>ETIMS 2027</b><small>NSIT · Bihta</small></span></a>
+  <ul id="menu">
+    <li><a href="#about">About</a></li>
+    <li><a href="#tracks">Tracks</a></li>
+    <li><a href="#dates">Dates</a></li>
+    <li><a href="#committee">Committee</a></li>
+    <li><a href="#fees">Registration</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#fees" class="btn btn-gold">Register</a>
+  <button class="burger" id="burger" aria-label="Menu">☰</button>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top" data-screen-label="Hero">
+  <video class="hero-video" src="assets/nsit.mp4" autoplay muted loop playsinline></video>
+  <canvas id="hero3d"></canvas>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">1<sup>st</sup> National Conference on</div>
+    <h1>Emerging Technologies, <em>Innovation</em> &amp; Multidisciplinary Studies</h1>
+    <div class="tag">ETIMS 2027</div>
+    <div class="disc">SCIENCE · ENGINEERING · MANAGEMENT · HUMANITIES</div>
+    <div class="hero-meta">
+      <div class="datebox"><span class="d">23</span><span class="d">24</span><span class="m">July 2027<small>DATES TENTATIVE</small></span></div>
+      <div class="facts"><b>Physical Mode</b> · NSIT Campus, Bihta<br>Eight Tracks · 200–300 Delegates</div>
+    </div>
+    <div class="hero-cta">
+      <a href="#tracks" class="btn btn-gold">Call for Papers →</a>
+      <a href="#about" class="btn btn-ghost">Explore the Conference</a>
+    </div>
+  </div>
+  <div class="countdown" id="countdown">
+    <div><b id="cd-d">0</b><small>Days</small></div>
+    <div><b id="cd-h">0</b><small>Hours</small></div>
+    <div><b id="cd-m">0</b><small>Mins</small></div>
+  </div>
+  <div class="scrollhint">Scroll<i></i></div>
+</header>
+
+<div class="marquee"><div class="track" id="mq"></div></div>
+
+<!-- ABOUT -->
+<section class="sec" id="about" data-screen-label="About">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="photo3d rv">
+        <div class="card" id="aboutCard">
+          <div class="frame"></div>
+          <img src="assets/hero.jpg" alt="NSIT Campus, Amhara, Bihta">
+          <img class="logo-float" src="assets/logo.png" alt="">
+          <div class="badge"><b>2007</b><small>Established</small></div>
+        </div>
+      </div>
+      <div class="about-txt">
+        <div class="kicker rv">About the Institute</div>
+        <h2 class="h2 rv d1">Netaji Subhas Institute of <em>Technology</em></h2>
+        <p class="rv d2">Established in 2007, NSIT is located at Amhara, Bihta, approximately 30 km from Patna, Bihar. The institute was established with the approval of AICTE and the Department of Science and Technology, Government of Bihar.</p>
+        <p class="rv d2">Its B.Tech programmes are affiliated with Bihar Engineering University, its diploma programmes with the State Board of Technical Education, and its management programmes with Aryabhatta Knowledge University. The ~9.2-acre campus provides laboratories, workshops, a digital library, auditorium, hostels and sports facilities.</p>
+        <div class="stats rv d3">
+          <div><b data-count="2007">2007</b><small>Founded</small></div>
+          <div><b data-count="9.2" data-dec="1">9.2</b><small>Acres</small></div>
+          <div><b data-count="7">7</b><small>Departments</small></div>
+          <div><b data-count="30">30</b><small>km from Patna</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="duo">
+      <div class="panel rv">
+        <div class="kicker">About the Departments</div>
+        <h3>Seven departments, one shared platform</h3>
+        <p>Their diverse academic backgrounds provide opportunities for interdisciplinary learning, research and knowledge exchange, forming the basis for ETIMS 2027.</p>
+        <div class="chips"><span>Civil</span><span>Mechanical</span><span>Electrical &amp; Electronics</span><span>Computer Science</span><span>Applied Sciences</span><span>Management</span><span>English &amp; Humanities</span></div>
+      </div>
+      <div class="panel dark rv d1">
+        <div class="kicker">About the Conference</div>
+        <h3>Two days of ideas, across disciplines</h3>
+        <p>Emerging technologies and complex societal challenges require multidisciplinary approaches. ETIMS 2027 provides a common platform for researchers, academicians, industry professionals and students to present findings, exchange ideas and explore collaboration.</p>
+        <div class="chips"><span>Keynote &amp; invited lectures</span><span>Parallel technical sessions</span><span>Oral &amp; poster presentations</span><span>Industry interactions</span><span>Panel discussions</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKS -->
+<section class="sec sec-dark" id="tracks" data-screen-label="Tracks">
+  <div class="wrap">
+    <div class="tracks-head">
+      <div>
+        <div class="kicker rv">Call for Papers</div>
+        <h2 class="h2 rv d1">Eight tracks. <em>One conversation.</em></h2>
+        <p class="lead rv d2">ETIMS 2027 invites original, unpublished research papers across eight tracks. Related multidisciplinary contributions are also welcome. Drag the ring to explore.</p>
+      </div>
+      <div class="arrows rv d3"><button id="prev" aria-label="Previous">←</button><button id="next" aria-label="Next">→</button></div>
+    </div>
+    <div class="stage3d" id="stage"><div class="ring" id="ring"></div></div>
+    <div class="track-detail" id="tdetail">
+      <div class="big" id="td-n">T1</div>
+      <div><h3 id="td-t"></h3><p id="td-d"></p></div>
+      <a href="#fees" class="btn btn-gold">Submit</a>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+</section>
+
+<!-- DATES -->
+<section class="sec" id="dates" data-screen-label="Dates">
+  <div class="wrap dates-grid">
+    <div>
+      <div class="kicker rv">Important Dates</div>
+      <h2 class="h2 rv d1">The road to <em>23 July</em></h2>
+      <p class="lead rv d2">Key milestones from the call for papers to the conference itself. Mark your calendar.</p>
+      <div class="flip rv d3" style="margin-top:40px;height:280px">
+        <div class="fi">
+          <div class="face front"><span class="ic">How to Submit</span><h3>Original, unpublished, full-length papers</h3><span class="hint">Hover / tap to read →</span></div>
+          <div class="face back"><h4>How to Submit</h4>Submit through the official submission portal once announced. Include an abstract of approximately 250–300 words, subject to the final publisher template. At least one author of each accepted paper must register and present in person.</div>
+        </div>
+      </div>
+    </div>
+    <div class="timeline" id="timeline">
+      <div class="tl"><i class="dot"></i><div class="box"><span>Call for Papers</span><b>Jan 2027</b></div></div>
+      <div class="tl"><i class="dot"></i><div class="box"><span>Full paper submission</span><b>30 Mar 2027</b></div></div>
+      <div class="tl"><i class="dot"></i><div class="box"><span>Acceptance notification</span><b>31 May 2027</b></div></div>
+      <div class="tl"><i class="dot"></i><div class="box"><span>Camera-ready submission</span><b>20 Jun 2027</b></div></div>
+      <div class="tl"><i class="dot"></i><div class="box"><span>Early registration deadline</span><b>20 Jun 2027</b></div></div>
+      <div class="tl"><i class="dot"></i><div class="box"><span>Final registration deadline</span><b>10 Jul 2027</b></div></div>
+      <div class="tl final"><i class="dot"></i><div class="box"><span>Conference</span><b>23–24 Jul 2027</b></div></div>
+      <p class="note">Provisional; subject to institutional and publisher approval.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITTEE -->
+<section class="sec sec-maroon" id="committee" data-screen-label="Organising Structure">
+  <div class="wrap">
+    <div class="kicker rv">Organising Structure</div>
+    <h2 class="h2 rv d1">The people behind <em>ETIMS</em></h2>
+    <div class="lead-grid">
+      <div class="person rv"><div class="in tilt-p"><img src="assets/p01.png" alt=""><div class="role">Chief Patron</div><h4>Mr. M. M. Singh</h4><p>Chairman, NSIT</p></div></div>
+      <div class="person rv d1"><div class="in tilt-p"><img src="assets/p02.png" alt=""><div class="role">Patron</div><h4>Mrs. Nitu Singh</h4><p>Managing Director, NSIT</p></div></div>
+      <div class="person rv d2"><div class="in tilt-p"><img src="assets/p03.png" alt=""><div class="role">Co-Patron</div><h4>Dr. Jyotirmayee Dalei</h4><p>Director, NSIT</p></div></div>
+      <div class="person rv d3"><div class="in tilt-p"><img src="assets/p04.png" alt=""><div class="role">Convenor</div><h4>Dr. Atif Hussain</h4><p>Assistant Professor, Dept. of Civil Engineering</p></div></div>
+    </div>
+    <div class="subhead rv">CO-CONVENORS</div>
+    <div class="co-grid">
+      <div class="co rv"><img src="assets/p05.png" alt=""><h5>Dr. Rajan Kumar</h5><small>Co-Convenor</small></div>
+      <div class="co rv d1"><img src="assets/p06.png" alt=""><h5>Dr. Gautam</h5><small>Co-Convenor</small></div>
+      <div class="co rv d2"><img src="assets/p07.png" alt=""><h5>Mr. Deepansh Yadav</h5><small>Co-Convenor</small></div>
+      <div class="co rv d3"><img src="assets/p08.png" alt=""><h5>Md. Farrukh</h5><small>Co-Convenor</small></div>
+      <div class="co rv d4"><img src="assets/p09.png" alt=""><h5>Mr. Nilanjan Manna</h5><small>Co-Convenor</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="advisory" data-screen-label="Advisory Committee">
+  <div class="wrap">
+    <div class="kicker rv">Advisory Committee</div>
+    <h2 class="h2 rv d1">Guided by leading <em>institutions</em></h2>
+    <div class="adv-grid" id="advGrid"></div>
+  </div>
+</section>
+
+<!-- INFO FLIP CARDS -->
+<section class="sec" style="padding-top:0" data-screen-label="Information">
+  <div class="wrap">
+    <div class="kicker rv">Conference Information</div>
+    <h2 class="h2 rv d1">Everything you <em>need to know</em></h2>
+    <div class="info-grid">
+      <div class="flip rv"><div class="fi">
+        <div class="face front"><span class="ic">01</span><h3>Review &amp; Publication</h3><span class="hint">Hover / tap →</span></div>
+        <div class="face back"><h4>Review &amp; Publication</h4>Manuscripts undergo preliminary screening for relevance, originality and similarity, followed by independent peer review. The committee is exploring publication with an established academic publisher; outlet, indexing, requirements and charges will be announced after formal confirmation.<em>Publisher and indexing are not yet confirmed; no publication or indexing guarantee is made.</em></div>
+      </div></div>
+      <div class="flip rv d1"><div class="fi">
+        <div class="face front"><span class="ic">02</span><h3>Who Should Attend</h3><span class="hint">Hover / tap →</span></div>
+        <div class="face back"><h4>Who Should Attend</h4>Faculty and academicians; scientists and R&amp;D researchers; research scholars and postgraduate students; undergraduate students; industry professionals and entrepreneurs; government and PSU representatives; librarians and information professionals.</div>
+      </div></div>
+      <div class="flip rv d2"><div class="fi">
+        <div class="face front"><span class="ic">03</span><h3>Awards &amp; Recognition</h3><span class="hint">Hover / tap →</span></div>
+        <div class="face back"><h4>Awards &amp; Recognition</h4>Best Paper, Best Student Paper and Best Poster awards may be presented based on originality, research quality and presentation. Track-wise awards depend on the number and quality of eligible submissions and decisions of the evaluation committee.</div>
+      </div></div>
+      <div class="flip wide rv"><div class="fi">
+        <div class="face front"><span class="ic">04</span><h3>Student Volunteers</h3><span class="hint">Hover / tap →</span></div>
+        <div class="face back"><h4>Student Volunteers</h4>Student volunteers drawn from every department will support registration and the help desk, hall management and session assistance, guest reception and hospitality, publicity and outreach, photography and documentation, and audio-visual and IT support.</div>
+      </div></div>
+      <div class="flip rv d1"><div class="fi">
+        <div class="face front"><span class="ic">05</span><h3>Sponsorship</h3><span class="hint">Hover / tap →</span></div>
+        <div class="face back"><h4>Sponsorship</h4>ETIMS 2027 invites sponsorship from industries, PSUs, research organizations and professional bodies. Opportunities may include institutional visibility, exhibition stalls and souvenir advertisements. Categories and benefits will be communicated separately.</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEES -->
+<section class="sec sec-dark" id="fees" data-screen-label="Registration">
+  <div class="wrap">
+    <div class="kicker rv">Registration Fees</div>
+    <h2 class="h2 rv d1">Register <em>early</em> &amp; save</h2>
+    <div class="fee-grid">
+      <div class="fees rv">
+        <div class="row th"><span style="color:inherit">Category</span><s>Regular</s><b>Early</b></div>
+        <div class="row"><span>Faculty / academicians</span><s>₹3,000</s><b>₹2,500</b></div>
+        <div class="row"><span>Industry professionals</span><s>₹4,000</s><b>₹3,500</b></div>
+        <div class="row"><span>Research scholars / PG</span><s>₹2,000</s><b>₹1,500</b></div>
+        <div class="row"><span>UG students</span><s>₹1,000</s><b>₹800</b></div>
+        <div class="row"><span>Non-presenting co-author / attendee</span><s>₹500</s><b>₹500</b></div>
+        <div class="fn">Early registration: 20 June 2027 · Final registration: 10 July 2027. Fees include conference participation, materials, refreshments/meals and applicable certificate. Publication charges, if any, will be notified separately.</div>
+      </div>
+      <div class="submit rv d2">
+        <div class="ring2"></div>
+        <h3>Ready to present your research?</h3>
+        <p>Full paper submission closes <b>30 March 2027</b>. The official submission portal will be announced on this website.</p>
+        <a href="mailto:etims2027@nsiterp.in?subject=ETIMS%202027%20Enquiry" class="btn">Email the Convenor →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE + CONTACT -->
+<section class="sec" id="contact" data-screen-label="Venue & Contact">
+  <div class="wrap">
+    <div class="venue rv">
+      <div class="img"><img src="assets/hero.jpg" alt="NSIT Campus" id="venueImg"></div>
+      <div class="txt">
+        <div class="kicker">Venue, Access &amp; Contact</div>
+        <h2 class="h2" style="font-size:44px">NSIT Campus, <em>Amhara, Bihta</em></h2>
+        <p>ETIMS 2027 will be held in physical mode at NSIT, approximately 30 km west of Patna. Limited accommodation may be available upon prior request, subject to availability. Travel details will be shared through the conference website.</p>
+        <div class="contact-list">
+          <div><i>Convenor</i>Dr. Atif Hussain · Asst. Professor, Civil Engg., NSIT</div>
+          <a href="mailto:etims2027@nsiterp.in"><i>Email</i>etims2027@nsiterp.in</a>
+          <a href="tel:+918340258426"><i>Phone</i>+91 83402 58426</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="brand"><img src="assets/emblem.png" alt="ETIMS 2027"><div><b>ETIMS 2027</b><br><small>Organised by Netaji Subhas Institute of Technology · Amhara · Bihta · Patna · Bihar</small></div></div>
+      <a href="#top" class="btn btn-ghost">Back to top ↑</a>
+    </div>
+    <div class="foot-bottom"><span>© 2027 NSIT Bihta. All rights reserved.</span><span>Dates tentative · Explore · Innovate · Collaborate · Build a Better Future</span></div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/three@0.149.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script src="etims.js"></script>
+</body>
+</html>
