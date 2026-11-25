@@ -286,7 +286,7 @@ footer{background:var(--ink);color:#bfa4a1;padding:70px 0 40px}
   .hero .wrap{margin-left:30px;width:calc(100% - 30px)}
   .hero .facts{border-left:0;padding-left:0}
   .stats{grid-template-columns:repeat(2,1fr)}
-  .info-grid .flip{height:520px}
+  .info-grid .flip{height:640px}
   .nav{padding:8px 4vw}.nav .brand img{width:34px;height:34px}.nav .brand b{font-size:13px}.nav ul a{font-size:11px;letter-spacing:.05em}
   .nav .btn{display:none}
   .hero h1{font-size:clamp(28px,9vw,52px);margin:16px 0 12px;line-height:1.05}
