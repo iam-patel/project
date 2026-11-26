@@ -129,7 +129,7 @@ scene.add(pts);
 let mx=0,my=0,tmx=0,tmy=0;
 addEventListener('mousemove',e=>{tmx=e.clientX/innerWidth-.5;tmy=e.clientY/innerHeight-.5;});
 function size(){const w=hero.clientWidth,h=hero.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();
-  const mobile=w<900; group.position.set(mobile?0:4.6,mobile?2.6:0,0); group.scale.setScalar(mobile?.62:1);}
+  const mobile=w<900; group.position.set(mobile?0:4.6,mobile?4.05:0,0); group.scale.setScalar(mobile?.44:1);}
 size(); addEventListener('resize',size);
 
 let visible=true; new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(hero);
