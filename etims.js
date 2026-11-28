@@ -44,8 +44,12 @@ document.querySelectorAll('.rv,.tl').forEach((el,i)=>{ if(el.classList.contains(
 function countUp(root){root.querySelectorAll('[data-count]').forEach(el=>{const to=parseFloat(el.dataset.count),dec=+el.dataset.dec||0,from=to>1000?to-60:0,t0=performance.now();
   (function f(t){const p=Math.min(1,(t-t0)/1600),e=1-Math.pow(1-p,3);el.textContent=(from+(to-from)*e).toFixed(dec);if(p<1)requestAnimationFrame(f);})(t0);});}
 
-/* tap-to-flip on touch */
-document.querySelectorAll('.flip').forEach(f=>f.addEventListener('click',()=>f.classList.toggle('on')));
+/* tap-to-flip: single open on touch/mobile, like hover on desktop */
+document.querySelectorAll('.flip').forEach(f=>f.addEventListener('click',()=>{
+  const wasOn=f.classList.contains('on');
+  document.querySelectorAll('.flip.on').forEach(x=>x.classList.remove('on'));
+  if(!wasOn) f.classList.add('on');
+}));
 
 /* ---------- 3D track ring ---------- */
 const ring=$('#ring'), N=TRACKS.length, step=360/N; let radius=Math.max(360, Math.min(520, innerWidth*0.36));
@@ -53,10 +57,11 @@ ring.innerHTML=TRACKS.map((t,i)=>`<div class="tcard" data-i="${i}"><img src="${t
 $('#dots').innerHTML=TRACKS.map((_,i)=>`<button aria-label="Track ${i+1}"></button>`).join('');
 const cards=[...ring.children], dots=[...$('#dots').children];
 let rot=0, targetRot=0, cur=0;
-function layout(){radius=Math.max(innerWidth<620?250:340, Math.min(520, innerWidth*0.36));cards.forEach((c,i)=>c.style.transform=`rotateY(${i*step}deg) translateZ(${radius}px)`);}
+function layout(){radius=Math.max(innerWidth<620?250:340, Math.min(520, innerWidth*0.36));cards.forEach((c,i)=>{const s=c.classList.contains('active')?1.1:1;c.style.transform=`rotateY(${i*step}deg) translateZ(${radius}px) scale(${s})`;});}
 layout(); addEventListener('resize',layout);
+cards.forEach(c=>{c.addEventListener('mouseenter',layout);c.addEventListener('mouseleave',layout);});
 function setActive(i){cur=((i%N)+N)%N;const t=TRACKS[cur];$('#td-n').textContent='T'+(cur+1);$('#td-t').textContent=t[0];$('#td-d').textContent=t[1];
-  cards.forEach((c,k)=>c.classList.toggle('active',k===cur));dots.forEach((d,k)=>d.classList.toggle('on',k===cur));}
+  cards.forEach((c,k)=>c.classList.toggle('active',k===cur));dots.forEach((d,k)=>d.classList.toggle('on',k===cur));layout();}
 function goTo(i){const diff=((i-cur)%N+N+N/2)%N-N/2;targetRot-=diff*step;setActive(i);}
 $('#next').onclick=()=>goTo(cur+1); $('#prev').onclick=()=>goTo(cur-1);
 dots.forEach((d,i)=>d.onclick=()=>goTo(i));
@@ -167,11 +172,13 @@ const clock=new THREE.Clock();
     const img=c.querySelector('img'); if(img) gsap.fromTo(img,{scale:.88},{scale:1,scrollTrigger:st(c)});
   });
 
-  /* about photo: small-to-big + zoom out on scroll */
+  /* about photo: zoom in from small to original when entering from top */
   const aboutCard=document.querySelector('#aboutCard');
   if(aboutCard){
-    gsap.fromTo(aboutCard.querySelector('img'),{autoAlpha:.92,scale:1},{autoAlpha:1,scale:1.1,scrollTrigger:st(aboutCard.parentElement)});
-    gsap.to(aboutCard,{scale:0.4,scrollTrigger:{trigger:aboutCard.parentElement,start:'top bottom',end:'bottom top',scrub:true}});
+    const img=aboutCard.querySelector('img:not(.logo-float)');
+    if(img){
+      gsap.fromTo(img,{scale:0.6,transformOrigin:'center center'},{scale:1,ease:'none',scrollTrigger:{trigger:'#about',start:'top 85%',end:'top 30%',scrub:true}});
+    }
   }
 
   /* track cards: photos small-to-big */
@@ -189,3 +196,23 @@ const glow=document.getElementById('bgGlow'); if(!glow)return;
 gsap.fromTo(glow,{'--g1':'rgba(140,42,64,.42)','--g2':'rgba(232,207,142,.15)'},
                {repeat:-1,yoyo:true,repeatDelay:2,duration:9,ease:'sine.inOut',
                 '--g1':'rgba(201,162,74,.68)','--g2':'rgba(140,42,64,.5)'});})();
+
+/* touch-hover: on coarse/touch devices, emulate hover when finger moves over elements */
+(function(){
+  if(!window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+  let prev=[];
+  function clear(){prev.forEach(el=>el.classList.remove('touch-hover'));prev=[];}
+  function setFromTouch(t){
+    const el=document.elementFromPoint(t.clientX,t.clientY);
+    if(!el){clear();return;}
+    const next=[];
+    for(let n=el;n&&n!==document.body;n=n.parentElement) next.push(n);
+    prev.forEach(n=>{if(!next.includes(n)) n.classList.remove('touch-hover');});
+    next.forEach(n=>n.classList.add('touch-hover'));
+    prev=next;
+  }
+  addEventListener('touchstart',e=>{if(e.touches[0]) setFromTouch(e.touches[0]);},{passive:true});
+  addEventListener('touchmove',e=>{if(e.touches[0]) setFromTouch(e.touches[0]);},{passive:true});
+  addEventListener('touchend',clear,{passive:true});
+  addEventListener('touchcancel',clear,{passive:true});
+})();
